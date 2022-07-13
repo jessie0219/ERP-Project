@@ -3,13 +3,19 @@
   <nav>
     <label>Logo</label>
     <ul>
-      <li><a href="">登出</a></li>
+      <li>
+        <button type="button" class="btn btn-primary confirm-btn py-1 px-2">
+          登出
+        </button>
+      </li>
     </ul>
     <label for="menu" class="menu-bar"><i class="fa-solid fa-bars"></i></label>
   </nav>
   <div class="side-menu">
     <li>
-      <a href="#"><i class="fa-solid fa-house"></i><span>首頁</span> </a>
+      <router-link to="/homeStudent"
+        ><i class="fa-solid fa-house"></i><span>首頁</span>
+      </router-link>
     </li>
     <li>
       <a href="#"
@@ -42,26 +48,27 @@
       </button> -->
       <div class="collapse" id="orders-collapse">
         <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
-          <a
+          <router-link
+            to="/createDiaryStudent"
+            class="btn align-items-center sub-btn dropdown"
+            >登打日誌
+          </router-link>
+          <router-link
+            to="/checkDiaryStudent"
+            class="btn align-items-center sub-btn dropdown"
+            >查看日誌
+          </router-link>
+          <!-- <a
             class="btn align-items-center sub-btn dropdown"
             data-bs-toggle="collapse"
             data-bs-target="#dashboard-collapse"
             aria-expanded="false"
           >
             查看日誌
-          </a>
-          <a
-            class="btn align-items-center sub-btn dropdown"
-            data-bs-toggle="collapse"
-            data-bs-target="#dashboard-collapse"
-            aria-expanded="false"
-          >
-            日誌登打率
-          </a>
+          </a> -->
         </ul>
       </div>
     </li>
-
     <!-- 111 -->
     <li>
       <a href="#"
@@ -78,7 +85,7 @@
 export default {};
 </script>
 
-<style scoped>
+<style lang="scss" scoped>
 * {
   padding: 0px;
   margin: 0px;
@@ -97,6 +104,32 @@ nav {
   position: fixed;
   width: 100%;
   border-bottom: #757575 0.5px solid;
+  ul {
+    float: right;
+    margin-right: 20px;
+    li {
+      line-height: 80px;
+      margin: 0 10px;
+      a {
+        color: white;
+        font-size: 14px;
+        padding: 6px 15px;
+        font-weight: 600;
+        background-color: #558aba;
+        border-radius: 5px;
+      }
+      a:hover {
+        color: white;
+        background-color: #22496d;
+      }
+    }
+  }
+  .menu-bar {
+    float: right;
+    display: none;
+    margin-right: 20px;
+    font-size: 14px;
+  }
 }
 label {
   line-height: 80px;
@@ -106,69 +139,42 @@ label {
   margin-left: 50px;
   cursor: pointer;
 }
-nav ul {
-  float: right;
-  margin-right: 20px;
-}
-nav ul li {
-  line-height: 80px;
-  margin: 0 10px;
-}
-nav ul li a {
-  color: white;
-  font-size: 20px;
-  padding: 6px 15px;
-  font-weight: 600;
-  background-color: #558aba;
-  border-radius: 5px;
-}
-nav ul li a:hover {
-  color: white;
-  background-color: #22496d;
-}
 .side-menu {
   position: fixed;
   background-color: #fff;
   width: 250px;
   height: 100%;
   margin-top: 80px;
-}
-/* .side-menu li a.dropdown {
-  background-color: rgb(192, 192, 192);
-} */
-.side-menu li a.dropdown:hover {
-  background-color: rgb(118, 118, 118);
-}
-.side-menu a {
-  padding: 10px;
-  display: block;
-  line-height: 60px;
-  transition: 0.5s;
-  color: rgb(52, 52, 52);
-}
-.side-menu a:hover {
-  background-color: #558aba;
-  padding-left: 20px;
-  color: #fff;
-}
-.side-menu span {
-  font-size: 20px;
-  margin-left: 10px;
-}
-.side-menu i {
-  font-size: 20px;
-  margin-left: 20px;
-}
-nav .menu-bar {
-  float: right;
-  display: none;
-  margin-right: 20px;
-  font-size: 30px;
+  li {
+    a.dropdown:hover {
+      background-color: rgb(118, 118, 118);
+    }
+    a {
+      padding: 10px;
+      display: block;
+      line-height: 60px;
+      transition: 0.5s;
+      color: rgb(52, 52, 52);
+    }
+    a:hover {
+      background-color: #558aba;
+      padding-left: 20px;
+      color: #fff;
+    }
+  }
+  span {
+    font-size: 14px;
+    margin-left: 10px;
+  }
+  i {
+    font-size: 14px;
+    margin-left: 20px;
+  }
+  .Logout {
+    display: none;
+  }
 }
 #menu {
-  display: none;
-}
-.side-menu .Logout {
   display: none;
 }
 @media (max-width: 850px) {
@@ -180,7 +186,7 @@ nav .menu-bar {
     line-height: 80px;
     text-align: center;
     margin-left: 0;
-    font-size: 25px;
+    font-size: 20px;
   }
   .side-menu {
     width: 200px;
