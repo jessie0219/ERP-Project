@@ -7,7 +7,11 @@
     <br />
     <div class="mt-5"><label for="">密碼</label> <input type="password" /></div>
     <br />
+<<<<<<< HEAD
     <router-link to="/homeStudent"
+=======
+    <router-link to="/home"
+>>>>>>> c5ced5541d5b31503619431ad5d33c1dddc1fd2d
       ><div class="btn btn-primary text-light">Login</div></router-link
     >
   </div>
